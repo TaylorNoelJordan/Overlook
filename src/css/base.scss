@@ -1,27 +1,38 @@
 @import './_variables';
-@import './searchInput';
-@import './pieChart';
+@import './_searchInput';
+@import './_pieChart';
+@import './_splash-styling';
+@import './_media-queries';
 
-body {
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://cdn.dribbble.com/users/1379556/screenshots/5197492/vertical_flowers_edit_final.jpg')
+
+
+* {
+  box-sizing: border-box;
 }
 
-h1 {
+body {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://cdn.dribbble.com/users/1379556/screenshots/5197492/vertical_flowers_edit_final.jpg');
+}
+
+header {
+  h1, p {
   color: $heading-font-color;
   font-size: 50px;
   text-shadow: black;
+  }
 }
 
 h2 {
   color: $h2-font-color;
-  margin: 15px;
+  margin: 14px;
 }
 
 .main__dashboard-display {
   display: flex;
-  justify-content: center;
-  align-content: flex-start;
+  flex-direction: column;
+  align-items: center;
 }
+
 
 aside {
   height: 800px;
@@ -35,9 +46,8 @@ aside {
     padding: 0px;
 
     li {
-      background: none;
       color: #222;
-      display: block;
+      display: flex;
       font-size: 20px;
       padding: 10px 15px;
       cursor: pointer;
@@ -55,17 +65,13 @@ aside {
   }
 
   .tab-content {
-    display: none;
     background: $tab-background-color;
-    opacity: 0.8;
-    margin: auto;
-    // padding: 15px;
-    // float: left;
-    padding: 0px 12px;
     border: 1px solid #ccc;
-    width: 70%;
-    border-left: none;
-    height: 300px;
+    display: none;
+    margin: auto;
+    min-height: 300px;
+    opacity: 0.8;
+    padding: 0px 12px;
 
     &.current {
       display: inherit;
@@ -73,12 +79,18 @@ aside {
   }
 }
 
-.aside__tabs--add-new-guest {
+.aside__tabs--add-new-guest,
+.aside__tabs--add-new-order {
   display: flex;
   flex-direction: column;
 
   label {
     margin-top: 0px;
+  }
+  
+  input {
+    font-size: 14px;
+    height: 25px;
   }
 
   label,
@@ -88,7 +100,54 @@ aside {
   }
   
   button {
-    width: 205px;
     margin: 5px;
+    width: 205px;
   }
+}
+
+.icon {
+  height: 35px;
+  width: 35px;
+}
+
+
+
+.bookings-styling,
+.guests-styling,
+.orders-styling,
+.main-styling {
+  display: flex;
+  flex-direction: column;
+  width: 750px;
+}
+
+.main-styling {
+  align-items: center;
+}
+
+
+table,
+th,
+td {
+  border: 1px solid black;
+  background: $tab-background-color;
+  opacity: 0.8;
+  width: 750px;
+}
+
+.select-btn {
+  height: 35px;
+  width: 90px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.select-rooms,
+.all-orders {
+  display: flex;
+}
+
+.all-orders {
+  flex-direction: column;
+  align-items: center;
 }
